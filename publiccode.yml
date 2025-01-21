@@ -1,0 +1,32 @@
+publiccodeYmlVersion: "0.2"
+categories:
+  - it-development
+description:
+  en:
+    features:
+      - Open Source
+      - Government
+    genericName: chat
+    longDescription: |
+      Chat development
+
+    shortDescription: Chat deployment
+developmentStatus: concept
+legal:
+  license: EUPL-1.2
+localisation:
+  availableLanguages:
+    - en
+    - nl
+  localisationReady: false
+maintenance:
+  contacts:
+    - name: Mijn Bureau
+      email: opensource@minbzk.nl
+  type: community
+name: chat
+platforms:
+  - chat
+releaseDate: "2024-12-18"
+softwareType: standalone/web
+url: "https://github.com/MinBZK/chat"
