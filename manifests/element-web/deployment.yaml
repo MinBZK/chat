@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dpl
+  labels:
+    app: element-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: element-web
+  template:
+    metadata:
+      labels:
+        app: element-web
+    spec:
+      containers:
+      - name: element-web 
+        image: vectorim/element-web:v1.11.91
+        env:
+        - name: ELEMENT_WEB_PORT
+          value: "8000"
+        ports:
+        - containerPort: 8000
+        volumeMounts:
+        - name: element-web-config
+          mountPath: /app/config.json
+          subPath: config.json
+          readOnly: true
+      volumes:
+      - name: element-web-config
+        configMap:
+          name: element-web-config

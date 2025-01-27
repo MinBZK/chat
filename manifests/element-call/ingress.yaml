@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ing
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/rewrite-target: /index.html
+spec:
+  rules:
+    - host: "call.chat.la-suite.apps.digilab.network"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: svc
+                port:
+                  number: 8000
+  tls:
+    - hosts:
+        - call.chat.la-suite.apps.digilab.network
+      secretName: element-call-tls

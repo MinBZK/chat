@@ -1,0 +1,14 @@
+{
+    "default_server_config": {
+      "m.homeserver": {
+        "base_url": "https://call.chat.la-suite.apps.digilab.network",
+        "server_name": "lasuite"
+      }
+    },
+    "livekit": {
+      "livekit_service_url": "https://livekit-jwt.chat.la-suite.apps.digilab.network"
+    },
+    "features": {
+      "feature_use_device_session_member_events": true
+    }
+  }

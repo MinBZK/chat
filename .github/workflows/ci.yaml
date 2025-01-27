@@ -53,16 +53,16 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v7
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "Fix formatting issues"
-          branch: prettier-fix
-          branch-suffix: short-commit-hash
-          title: "Prettier: Fix formatting issues"
-          body: |
-            Fix prettier formattin issues
+      # - name: Create Pull Request
+      #   uses: peter-evans/create-pull-request@v7
+      #   with:
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     commit-message: "Fix formatting issues"
+      #     branch: prettier-fix
+      #     branch-suffix: short-commit-hash
+      #     title: "Prettier: Fix formatting issues"
+      #     body: |
+      #       Fix prettier formattin issues
 
   checkov:
     name: checkov

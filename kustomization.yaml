@@ -6,3 +6,10 @@ namePrefix: chat-
 
 buildMetadata: [originAnnotations]
 
+resources:
+- manifests/postgres/
+- manifests/redis/
+- manifests/mailcatcher/
+- manifests/synapse/
+- manifests/element-web/
+

@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dpl
+  labels:
+    app: synapse
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: synapse
+  template:
+    metadata:
+      labels:
+        app: synapse
+    spec:
+      containers:
+      - name: synapse
+        image: ghcr.io/element-hq/synapse:v1.123.0
+        ports:
+        - containerPort: 8008
+        - containerPort: 9093
+        env:
+        - name: SYNAPSE_CONFIG_DIR
+          value: "/data"
+        - name: SYNAPSE_CONFIG_PATH
+          value: "/config/homeserver.yaml"
+        volumeMounts:
+        - name: data
+          mountPath: /data
+        - name: synapse-signing-key
+          mountPath: /secrets/
+          readOnly: true
+        - name: synapse-config
+          mountPath: /config
+          readOnly: true
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: pvc
+      - name: synapse-signing-key
+        secret:
+          secretName: synapse-signing-key
+      - name: synapse-config
+        configMap:
+          name: synapse-config

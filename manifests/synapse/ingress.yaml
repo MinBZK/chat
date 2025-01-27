@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ing
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+      location = /.well-known/matrix/server {
+        default_type application/json;
+        return 200 '{"m.server": "matrix.chat.la-suite.apps.digilab.network:443"}';
+      }
+spec:
+  rules:
+    - host: "matrix.chat.la-suite.apps.digilab.network"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: svc
+                port:
+                  number: 8008
+  tls:
+    - hosts:
+        - matrix.chat.la-suite.apps.digilab.network
+      secretName: matrix-tls
