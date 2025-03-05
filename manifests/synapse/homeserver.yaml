@@ -84,8 +84,8 @@ email:
 
 # temporarily boost rate-limits to avoid breaking WIP MatrixRTC signalling
 rc_message:
-  per_second: 2
-  burst_count: 15
+  per_second: 0.5
+  burst_count: 30
 
 # The maximum allowed duration by which sent events can be delayed, as
 # per MSC4140. Must be a positive value if set.  Defaults to no
@@ -148,3 +148,10 @@ auto_accept_invites:
   enabled: true
   only_for_direct_messages: true
   only_from_local_users: true
+
+
+experimental_features:
+  # MSC3266: Room summary API. Used for knocking over federation
+  msc3266_enabled: true
+  # MSC4222 needed for syncv2 state_after. This allow clients to correctly track the state of the room.
+  msc4222_enabled: true

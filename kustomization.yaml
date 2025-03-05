@@ -12,4 +12,6 @@ resources:
 - manifests/mailcatcher/
 - manifests/synapse/
 - manifests/element-web/
+- manifests/livekit-jwt/
+- manifests/element-call/
 

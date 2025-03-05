@@ -6,7 +6,7 @@ metadata:
     cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
   rules:
-    - host: "call.chat.la-suite.apps.digilab.network"
+    - host: "livekit-jwt.chat.la-suite.apps.digilab.network"
       http:
         paths:
           - path: /
@@ -18,5 +18,5 @@ spec:
                   number: 8080
   tls:
     - hosts:
-        - call.chat.la-suite.apps.digilab.network
-      secretName: element-call-tls
+        - livekit-jwt.chat.la-suite.apps.digilab.network
+      secretName: element-livekit-jwt-tls

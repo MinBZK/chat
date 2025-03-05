@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dpl
+  labels:
+    app: element-livekit-jwt
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: element-livekit-jwt
+  template:
+    metadata:
+      labels:
+        app: element-livekit-jwt
+    spec:
+      containers:
+      - name: element-livekit-jwt
+        image: ghcr.io/element-hq/lk-jwt-service:0.1.2
+        ports:
+        - containerPort: 8080
+        env:
+        - name: LIVEKIT_URL
+          value: "wss://livekit.meet.la-suite.apps.digilab.network"
+        envFrom:
+        - secretRef:
+            name: sec
+
+
+

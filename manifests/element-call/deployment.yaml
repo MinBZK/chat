@@ -18,7 +18,7 @@ spec:
       - name: element-call 
         image: ghcr.io/element-hq/element-call:v0.7.1
         ports:
-        - containerPort: 8000
+        - containerPort: 8080
         volumeMounts:
         - name: element-call-config
           mountPath: /app/config.json

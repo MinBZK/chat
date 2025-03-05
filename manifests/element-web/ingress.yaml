@@ -4,6 +4,8 @@ metadata:
   name: ing
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/enable-cors: "true"
+    nginx.ingress.kubernetes.io/cors-allow-origin: "*.chat.la-suite.apps.digilab.network"
 spec:
   rules:
     - host: "element.chat.la-suite.apps.digilab.network"

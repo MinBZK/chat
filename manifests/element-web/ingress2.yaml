@@ -6,10 +6,16 @@ metadata:
     cert-manager.io/cluster-issuer: letsencrypt-prod
     nginx.ingress.kubernetes.io/permanent-redirect: "https://element.chat.la-suite.apps.digilab.network"
     nginx.ingress.kubernetes.io/permanent-redirect-code: "302"
+    nginx.ingress.kubernetes.io/enable-cors: "true"
+    nginx.ingress.kubernetes.io/cors-allow-origin: "*.chat.la-suite.apps.digilab.network"
     nginx.ingress.kubernetes.io/configuration-snippet: |
       location = /.well-known/matrix/server {
         default_type application/json;
         return 200 '{"m.server": "matrix.chat.la-suite.apps.digilab.network:443"}';
+      }
+      location = /.well-known/matrix/client {
+        default_type application/json;
+        return 200 '{"m.homeserver": "https://matrix.chat.la-suite.apps.digilab.network", "org.matrix.msc4143.rtc_foci":[{"type":"livekit","livekit_service_url":"https://livekit-jwt.chat.la-suite.apps.digilab.network"}]}';
       }
 spec:
   rules:
