@@ -11,7 +11,7 @@ metadata:
     nginx.ingress.kubernetes.io/configuration-snippet: |
       location = /.well-known/matrix/server {
         default_type application/json;
-        return 200 '{"m.server": "matrix.chat.la-suite.apps.digilab.network:443"}';
+        return 200 '{"m.server": "https://matrix.chat.la-suite.apps.digilab.network"}';
       }
       location = /.well-known/matrix/client {
         default_type application/json;
