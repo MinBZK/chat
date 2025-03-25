@@ -21,3 +21,7 @@ spec:
               containerPort: 1080
             - name: smtp
               containerPort: 1025
+          requests:
+            memory: "64Mi"
+            cpu: "10m"
+

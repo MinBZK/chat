@@ -25,6 +25,9 @@ spec:
         envFrom:
         - secretRef:
             name: sec
+        requests:
+          memory: "16Mi"
+          cpu: "10m"
 
 
 

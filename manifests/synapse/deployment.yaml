@@ -34,6 +34,9 @@ spec:
         - name: synapse-config
           mountPath: /config
           readOnly: true
+        requests:
+          memory: "512Mi"
+          cpu: "10m"
       volumes:
       - name: data
         persistentVolumeClaim:

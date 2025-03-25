@@ -24,6 +24,10 @@ spec:
           mountPath: /app/config.json
           subPath: config.json
           readOnly: true
+        resources:
+          requests:
+            memory: "16Mi"
+            cpu: "10m"
       volumes:
       - name: element-call-config
         configMap:

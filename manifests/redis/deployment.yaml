@@ -32,6 +32,9 @@ spec:
             - name: redis-config-volume
               mountPath: /usr/local/etc/redis/redis.conf
               subPath: redis.conf
+          requests:
+            memory: "16Mi"
+            cpu: "10m"
       volumes:
         - name: redis-data
           emptyDir: {}

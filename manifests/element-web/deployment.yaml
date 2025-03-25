@@ -27,6 +27,9 @@ spec:
           mountPath: /app/config.json
           subPath: config.json
           readOnly: true
+        requests:
+            memory: "32Mi"
+            cpu: "10m"
       volumes:
       - name: element-web-config
         configMap:
